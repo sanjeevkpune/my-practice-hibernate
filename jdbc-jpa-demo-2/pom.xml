@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>sanjeev.practice.springboot</groupId>
-	<artifactId>jdbc-jpa-demo</artifactId>
+	<artifactId>jdbc-jpa-demo-2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>jdbc-jpa-demo</name>
 	<description>Demo for JDBC JPA </description>

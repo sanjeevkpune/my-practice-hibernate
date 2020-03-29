@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JdbcJpaDemoApplication {
+public class JpaDemoApplication1 {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdbcJpaDemoApplication.class, args);
+		SpringApplication.run(JpaDemoApplication1.class, args);
 	}
 
 }
