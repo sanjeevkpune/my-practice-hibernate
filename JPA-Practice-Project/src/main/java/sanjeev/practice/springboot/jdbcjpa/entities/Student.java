@@ -12,42 +12,33 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @NamedQueries(value = { 
-		@NamedQuery(name = "findAllCourses", query = "select c from Course c") ,
-		@NamedQuery(name = "deleteAllCourses", query = "delete from Course")
+		@NamedQuery(name = "findAllStudents", query = "select s from Student s") ,
+		@NamedQuery(name = "deleteAllStudents", query = "delete from Student")
 		}
 )
 
 
 /*
- * Hibernate fires this create table command first
- * then only data.sql is read and executed
- * below insert queries from data.sql are fired
- 
-INSERT INTO COURSE (ID, NAME) VALUES(10001, 'Java')
-INSERT INTO COURSE (ID, NAME) VALUES(10002, 'Spring')
-INSERT INTO COURSE (ID, NAME) VALUES(10003, 'Devops')
- create table course (
- 
-	       id bigint not null,
-	        creation_time timestamp,
-	        last_update_time timestamp,
-	        name varchar(255) not null,
-	        primary key (id)
-	    )
- */
-public class Course {
+    
+    create table student (
+       id bigint not null,
+        creation_time timestamp,
+        last_update_time timestamp,
+        name varchar(100) not null,
+        primary key (id)
+    )
+
+*/
+public class Student {
 	@Id
 	@GeneratedValue
 	@NotNull
 	private Long id;
-	@NotNull
+	
+	@Column(length = 100, nullable = false)
 	private String name;
 	
 	@UpdateTimestamp
@@ -57,15 +48,7 @@ public class Course {
 	@Column(nullable = false, updatable = false)
 	private LocalDateTime creationTime;
 	
-	/*// springframework annotations
-	 * @LastModifiedDate
-	 * 
-	 * @LastModifiedBy
-	 * 
-	 * @CreatedBy
-	 * 
-	 * @CreatedDate
-	 */
+	
 	
 	public String getName() {
 		return name;
@@ -76,12 +59,12 @@ public class Course {
 	public Long getId() {
 		return id;
 	}
-	public Course(String name) {
+	public Student(String name) {
 		super();
 		this.name = name;
 	}
 	
-	protected Course() {
+	public Student() {
 		super();
 	}
 	
@@ -100,7 +83,7 @@ public class Course {
 	}
 	@Override
 	public String toString() {
-		return String.format("Course [id=%s, name=%s, lastUpdateTime=%s, creationTime=%s]", id, name, lastUpdateTime,
+		return String.format("Student [id=%s, name=%s, lastUpdateTime=%s, creationTime=%s]", id, name, lastUpdateTime,
 				creationTime);
 	}
 	
